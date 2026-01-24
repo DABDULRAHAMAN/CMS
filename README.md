@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CMS - Personal & Team Calendar Manager
+
+A modern, responsive Calendar Management System (CMS) built with Next.js 15, allowing users to manage personal and team events with ease. Features natural language event creation, drag-and-drop-like interaction, and a beautiful UI.
+
+## Features
+
+- 📅 **Interactive Calendar**: Switch between Week and Month views.
+- ✨ **Natural Language Quick Add**: Create events by typing "Lunch with John tomorrow at 2pm".
+- 👥 **Personal & Team Contexts**: Separate calendars for personal tasks and team schedules.
+- 🔐 **Authentication**: Secure login and registration flows.
+- 📱 **Responsive Design**: Built with Tailwind CSS for all screen sizes.
+
+## Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Database**: [MongoDB](https://www.mongodb.com/) (Mongoose)
+- **Auth**: [Auth.js (NextAuth v5)](https://authjs.dev/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **NLP**: [Chrono Node](https://github.com/wanasit/chrono) for parsing dates.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js 18+ installed
+- MongoDB installed locally or a MongoDB Atlas connection string
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/DABDULRAHAMAN/CMS.git
+   cd CMS
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Environment Setup**
+   Create a `.env.local` file in the root directory:
+   ```env
+   MONGODB_URI=mongodb://localhost:27017/cms
+   AUTH_SECRET=your_super_secret_key_here
+   # To generate a secret: npx auth secret
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Usage Guide
 
-## Deploy on Vercel
+- **Creating Events**: Click the "New" button or type naturally in the Quick Add bar (e.g., "Meeting Friday 10am").
+- **Editing**: Click any event to edit details or delete it.
+- **Switching Contexts**: Use the sidebar to toggle between "Personal" and "Team" calendars.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This app can be easily deployed on [Vercel](https://vercel.com/new). Remember to add your `MONGODB_URI` and `AUTH_SECRET` to the deployment environment variables.
+
+## License
+
+MIT
