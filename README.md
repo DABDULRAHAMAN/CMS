@@ -66,6 +66,4 @@ A modern, responsive Calendar Management System (CMS) built with Next.js 15, all
 
 This app can be easily deployed on [Vercel](https://vercel.com/new). Remember to add your `MONGODB_URI` and `AUTH_SECRET` to the deployment environment variables.
 
-## License
 
-MIT
