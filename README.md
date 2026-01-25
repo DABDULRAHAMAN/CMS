@@ -2,6 +2,8 @@
 
 A modern, responsive Calendar Management System (CMS) built with Next.js 15, allowing users to manage personal and team events with ease. Features natural language event creation, drag-and-drop-like interaction, and a beautiful UI.
 
+🚀 **[Live Demo](https://calender-management-sys.netlify.app/)**
+
 ## Features
 
 - 📅 **Interactive Calendar**: Switch between Week and Month views.
