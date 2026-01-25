@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { WeekView } from '@/components/WeekView';
-import { MonthView } from '@/components/MonthView'; // Assume this exists
+import { MonthView } from '@/components/MonthView';
+import { HeatMapView } from '@/components/HeatMapView';
 import { EventModal } from '@/components/EventModal';
 import { CalendarEvent, CreateEventInput } from '@/types';
 import { startOfWeek, endOfWeek, addWeeks, subWeeks, format, startOfMonth, endOfMonth, addMonths, subMonths } from 'date-fns';
@@ -25,7 +26,7 @@ export default function Home() {
   const [quickAddDefaults, setQuickAddDefaults] = useState<Partial<CreateEventInput> | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const [view, setView] = useState<'week' | 'month'>('week');
+  const [view, setView] = useState<'week' | 'month' | 'heatmap'>('week');
   const [context, setContext] = useState<'personal' | 'team'>('personal');
 
   const fetchEvents = async () => {
@@ -178,6 +179,13 @@ export default function Home() {
           >
             Month View
           </Button>
+          <Button
+            variant={view === 'heatmap' ? 'secondary' : 'ghost'}
+            className="w-full justify-start"
+            onClick={() => setView('heatmap')}
+          >
+            Heat Map
+          </Button>
         </div>
 
         <div className="p-4 border-t">
@@ -240,7 +248,7 @@ export default function Home() {
                 setIsModalOpen(true);
               }}
             />
-          ) : (
+          ) : view === 'month' ? (
             <MonthView
               events={events}
               currentDate={currentDate}
@@ -249,6 +257,16 @@ export default function Home() {
                 setSelectedDate(null);
                 setIsModalOpen(true);
               }}
+              onSlotClick={(date) => {
+                setSelectedEvent(null);
+                setSelectedDate(date);
+                setIsModalOpen(true);
+              }}
+            />
+          ) : (
+            <HeatMapView
+              events={events}
+              currentDate={currentDate}
               onSlotClick={(date) => {
                 setSelectedEvent(null);
                 setSelectedDate(date);
